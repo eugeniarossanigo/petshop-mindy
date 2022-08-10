@@ -4,9 +4,39 @@
     box-sizing: border-box;
 }
 
+/* ========== HEADER ========== */
 
-/* --------------------------------- */
-/* MAIN Y PRODUCTS */
+header{
+    min-height: 15vh;
+    background-color: #E4DCCF !important;
+}
+.logo{
+    width: 35vh;
+    object-fit: contain;
+}
+.a-nav{
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #576F72 !important;
+}
+.a-nav:hover, header a.active{
+    color: #B2675E !important;
+}
+.svg-color{
+    color: #576F72 !important;
+}
+.svg-color:hover{
+    color: #B2675E !important;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+h2{
+    color: #576F72;
+}
+
+/* ========== MAIN Y PRODUCTS ========== */
 main{
     min-height: 70vh;
 }
@@ -37,7 +67,7 @@ main{
 .mision-img-index{
     width: 10rem;
 }
-#alertStock{
+#alert-stock{
     font-weight: bolder;
     color: #AE4D53;
 }
@@ -73,6 +103,181 @@ body::-webkit-scrollbar-thumb {
     border-radius: 1.2rem;
 }
 
+/* ========== FOOTER ========== */
+
+footer{
+    min-height: 15vh !important;
+    background-color: #F0EBE3 !important;
+}
+.a-footer{
+    color: #B2675E !important;
+}
+.a-footer:hover{
+    color: #576F72 !important;
+}
+.a-footer2{
+    font-size: 1.08rem;
+    color: black;
+}
+.a-footer2:hover{
+    color: #B2675E
+    ;
+}
+
+/* ========== CONTACT ========== */
+
+.container-form{
+    width: 60vh;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    border-radius: .8rem;
+    box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.717);
+    background-color:#f0ebe34c;
+}
+.container-form h2{
+    width: 60vh;
+    text-align: center;
+    padding: .5rem;
+    background-color: #7D9D9C;
+    border-radius: .8rem .8rem 0 0;
+    color:#576F72;
+    text-shadow: 2px 2px black
+}
+.container-form fieldset{
+    padding: .6rem;
+}
+.container-form textarea{
+   justify-items: center;
+   resize: none;
+   width: 70%;
+   height: 10vh;
+}
+fieldset label{
+    font-size: large;
+    padding-right: 1rem;
+    color: #000000;
+}
+.container-form label{
+    font-weight:500;
+}
+.container-form select{
+    justify-self: center;
+    width: 70%;
+}
+.container-form legend, h5{
+    padding: .5rem;
+    text-align:center;
+    font-weight:500;
+    font-size:large;
+    color: #000000;
+}
+.button-send input{
+    background-color:#7D9D9C;
+    width: 10vh;
+}
+.form-input{
+    width: 70%;
+    font-weight:400;
+    padding: .2rem;
+}
+#submit-btn {
+    width: 10rem;
+    padding: .5rem 1.5rem;
+    text-align: center;
+}
+.ubication{
+    border-radius: .8rem;
+}
+.ubication h2{
+    text-align: center;
+    background-color: #7D9D9C;
+    border-radius: .8rem ;
+    padding: .5rem;
+    color:#576F72;
+    text-shadow: 2px 2px black
+}
+.ubication p{
+    padding: .6rem;
+    font-weight: bold;
+}
+iframe{
+    border-radius: .8rem;
+}
+
+/* ========== CART ========== */
+
+.title-cart {
+    color: #7D9D9C;
+    align-self: flex-start;
+}
+.table-responsive {
+    border-radius: 1rem 0 0 1rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+table {
+    background-color: #f0ebe34c;
+    border: 1px solid #ffffff !important;
+}
+.table-group-divider {
+    border-top: 2px solid #576F72;
+}
+tr {
+    color: #576F72 !important;
+}
+.cantidad {
+    text-align: center;
+}
+.cart-product-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 1rem;
+}
+.order-summary {
+    background-image: url(https://png.pngtree.com/thumb_back/fw800/background/20210327/pngtree-cute-dog-tiled-background-bone-claw-print-image_595775.jpg);
+    background-size: cover;
+    border-radius: 0 1rem 1rem 0;
+    padding: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    min-height: 500px;
+    align-self: center;
+}
+.order-summary h2 {
+    text-align: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.171);
+    padding: 0 0 .5rem 0;
+    color: rgb(46, 46, 46);
+}
+.order-summary h3 {
+    font-size: 1rem;
+}
+.summary-body {
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 400px;
+    padding: 2rem;
+    border: 1px solid rgba(59, 59, 59, 0.233);
+    border-radius: .5rem;
+}
+.btn-color {
+    background-color: #648f8d;
+    color: white;
+}
+.btn-color:hover {
+    background-color: #94b9b8;
+    border: none;
+    color: white;
+}
+
+
+/* ========== MEDIA QUERIES ========== */
+
+@media screen and (max-width: 900px){
+    #container-contact{
+        flex-direction: column;
+    }
+}
 @media screen and (max-width:768px){
     .carousel-personal{
         height: 20vh;
