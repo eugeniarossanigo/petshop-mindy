@@ -7,7 +7,7 @@
 /* ========== HEADER ========== */
 
 header{
-    min-height: 15vh;
+    min-height: 9rem;
     background-color: #E4DCCF !important;
 }
 .logo{
@@ -38,7 +38,7 @@ h2{
 
 /* ========== MAIN Y PRODUCTS ========== */
 main{
-    min-height: 70vh;
+    min-height: 35rem;
 }
 .card-personal{
     width: 20rem;
@@ -106,7 +106,7 @@ body::-webkit-scrollbar-thumb {
 /* ========== FOOTER ========== */
 
 footer{
-    min-height: 15vh !important;
+    min-height: 9rem !important;
     background-color: #F0EBE3 !important;
 }
 .a-footer{
