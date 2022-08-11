@@ -82,78 +82,16 @@
     </header>
     <main class="d-flex flex-column justify-content-center">
         <div class="container-filters d-flex p-2 justify-content-around flex-wrap gap-2">
-            <select class="form-select" aria-label="Default select example">
-                <option selected>Odenar por precio</option>
-                <option value="1">De menor a mayor</option>
-                <option value="2">De mayor a menor</option>
+            <select id="select" class="form-select" aria-label="Default select example">
+                <option selected>Ordenar por precio</option>
+                <option value="1" id="sort-price-increase">De menor a mayor</option>
+                <option value="2" id="sort-price-decrease">De mayor a menor</option>
             </select>
             <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+                <input id="searchbar" class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
             </form>
         </div>
-        <div id="products-container" class="container align-self-center w-75 d-flex gap-4 flex-wrap justify-content-center py-5">
-            <div class="card card-personal">
-                <img src="https://cdn.shopify.com/s/files/1/0406/8003/0364/products/product-image-1285781766_1024x1024.jpg?v=1592941758" class="card-img-top card-img-personal" alt="...">
-                <div class="card-body d-flex flex-column justify-content-between gap-2">
-                    <h5 class="card-title text-center">Card title</h5>
-                    <p class="text-center">
-                        <a class="btn btn-details" data-bs-toggle="collapse" href="#collapseExample" role="button"
-                            aria-expanded="false" aria-controls="collapseExample">
-                            Descripción del producto &rarr;
-                        </a>
-                    </p>
-                    <p>$0000</p>
-                    <p id="alert-stock">¡ÚLTIMAS UNIDADES!</p>
-                    <a href="#" class="btn btn-personal">Agregar al carrito</a>
-                </div>
-            </div>
-            <div class="card card-personal">
-                <img src="https://cdn.shopify.com/s/files/1/0406/8003/0364/products/product-image-1291332388_445a8917-102c-4afe-879b-6f5f37c1a676_1024x1024.jpg?v=1592521690" class="card-img-top card-img-personal" alt="...">
-                <div class="card-body d-flex flex-column justify-content-between gap-2">
-                    <h5 class="card-title text-center">Card title</h5>
-                    <p class="text-center">
-                        <a class="btn btn-details" data-bs-toggle="collapse" href="#collapseExample" role="button"
-                            aria-expanded="false" aria-controls="collapseExample">
-                            Descripción del producto &rarr;
-                        </a>
-                    </p>
-                    <p>$0000</p>
-                    <p id="alert-stock">¡ÚLTIMAS UNIDADES!</p>
-                    <a href="#" class="btn btn-personal">Agregar al carrito</a>
-                </div>
-            </div>
-            <div class="card card-personal">
-                <img src="https://cdn.shopify.com/s/files/1/0406/8003/0364/products/product-image-1228771554_1024x1024.jpg?v=1592521710"
-                    , class="card-img-top card-img-personal" alt="...">
-                <div class="card-body d-flex flex-column justify-content-between gap-2">
-                    <h5 class="card-title text-center">Card title</h5>
-                    <p class="text-center">
-                        <a class="btn btn-details" data-bs-toggle="collapse" href="#collapseExample" role="button"
-                            aria-expanded="false" aria-controls="collapseExample">
-                            Descripción del producto &rarr;
-                        </a>
-                    </p>
-                    <p>$0000</p>
-                    <p id="alert-stock">¡ÚLTIMAS UNIDADES!</p>
-                    <a href="#" class="btn btn-personal">Agregar al carrito</a>
-                </div>
-            </div>
-            <div class="card card-personal">
-                <img src="https://puppis.vteximg.com.br/arquivos/ids/165646-1000-1000/332002.png?v=636764253250970000"
-                    , class="card-img-top card-img-personal" alt="...">
-                <div class="card-body d-flex flex-column justify-content-between gap-2">
-                    <h5 class="card-title text-center">Card title</h5>
-                    <p class="text-center">
-                        <a class="btn btn-details" data-bs-toggle="collapse" href="#collapseExample" role="button"
-                            aria-expanded="false" aria-controls="collapseExample">
-                            Descripción del producto &rarr;
-                        </a>
-                    </p>
-                    <p>$0000</p>
-                    <p id="alert-stock">¡ÚLTIMAS UNIDADES!</p>
-                    <a href="#" class="btn btn-personal">Agregar al carrito</a>
-                </div>
-            </div>
+        <div id="medicine-products-container" class="container align-self-center w-75 d-flex gap-4 flex-wrap justify-content-center py-5">
         </div>
     </main>
     <footer class="bg-secundary d-flex flex-column justify-content-center">
