@@ -84,6 +84,12 @@ h2{
 main{
     min-height: 35rem;
 }
+
+.text-main{
+    color: #576F72;
+    font-size: 1.5rem;
+}
+
 .card-personal{
     width: 20rem;
     background-color: #f0ebe34c;
@@ -184,7 +190,7 @@ footer{
 /* ========== CONTACT ========== */
 
 .container-form{
-    width: 60vh;
+    width: 50vh;
     display: flex;
     justify-content: center;
     text-align: center;
@@ -194,7 +200,7 @@ footer{
     background-color:#f0ebe34c;
 }
 .container-form h2{
-    width: 60vh;
+    width: 50vh;
     text-align: center;
     padding: .5rem;
     background-color: #7D9D9C;
@@ -338,10 +344,22 @@ tr {
     .carousel-personal{
         height: 20vh;
     }
+    .container-form{
+        width: 42vh;
+    }
+    .container-form h2{
+        width: 42vh;
+    }
 }
 @media screen and (max-width: 580px){
     header div{
         flex-direction: column !important;
+    }
+    .container-form{
+        width: 35vh;
+    }
+    .container-form h2{
+        width: 35vh;
     }
 }
 @media screen and (max-width:375px){

@@ -12,20 +12,6 @@ const getAndShowData = async() => {
         let arrayCart = filterProducts(petShopProducts)
         createProductsCart(arrayCart)
         
-        document.getElementById('clear-cart').addEventListener("click", () => {
-            localStorage.clear()
-            let table = document.querySelector('.table')
-            table.classList.add('d-flex')
-            table.classList.add('justify-content-center')
-            table.innerHTML = `<img class="kitty" src="./assets/img/gatito-carrito.png" alt="gatito"></img>`
-            ///AGREGAR MODAL
-        })
-
-        document.getElementById('clear-btn').addEventListener("click", () => {
-            localStorage.clear()
-            cartContainer.innerHTML = ""
-            ///AGREGAR MODAL
-        })
         
         let subtotal = document.getElementById("subtotal")
         let total = document.getElementById("total")
@@ -44,6 +30,25 @@ const getAndShowData = async() => {
             })
         })
 
+        document.getElementById('clear-cart').addEventListener("click", () => {
+            localStorage.clear()
+            subtotal.textContent = 0
+            total.textContent = 0
+            let table = document.querySelector('.table')
+            table.classList.add('d-flex')
+            table.classList.add('justify-content-center')
+            table.innerHTML = `<img class="kitty" src="./assets/img/gatito-carrito.png" alt="gatito"></img>`
+            ///AGREGAR MODAL
+        })
+
+        document.getElementById('clear-btn').addEventListener("click", () => {
+            localStorage.clear()
+            subtotal.textContent = 0
+            total.textContent = 0
+            cartContainer.innerHTML = ""
+            ///AGREGAR MODAL
+        })
+
         cartContainer.addEventListener('click', deleteProduct);
         function deleteProduct(e) {
             if (e.target.classList.contains('delete')) {
@@ -52,8 +57,8 @@ const getAndShowData = async() => {
                     text: "Se eliminará permanentemente",
                     icon: 'warning',
                     showCancelButton: true,
-                    confirmButtonColor: '##576F72',
-                    cancelButtonColor: '##E4DCCF',
+                    confirmButtonColor: '#576F72',
+                    cancelButtonColor: '#B2675E',
                     confirmButtonText: 'Sí, borralo!',
                 }).then((result) => {
                     if (result.isConfirmed) {
