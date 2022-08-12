@@ -52,8 +52,8 @@ const getAndShowData = async() => {
                     text: "Se eliminará permanentemente",
                     icon: 'warning',
                     showCancelButton: true,
-                    confirmButtonColor: '#576F72',
-                    cancelButtonColor: '#B2675E',
+                    confirmButtonColor: '##576F72',
+                    cancelButtonColor: '##E4DCCF',
                     confirmButtonText: 'Sí, borralo!',
                 }).then((result) => {
                     if (result.isConfirmed) {
