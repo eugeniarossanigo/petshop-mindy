@@ -2,6 +2,47 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Mukta', sans-serif;
+}
+
+h2{
+    font-weight: bold !important;
+}
+
+h3{
+    font-weight: bold !important;
+}
+
+h5{
+    font-weight: bold !important;
+}
+
+a{
+    font-weight: bold !important;
+    color: #576F72 !important;
+}
+
+p{
+    font-size: 1.1rem;
+}
+
+.btn-color1{
+    background-color: #648f8d !important;
+    color: white !important;
+}
+
+.btn-color2{
+    background-color: #E4DCCF !important;
+    color: #B2675E !important;
+}
+
+.btn-color3{
+    background-color: #B2675E !important;
+    color: white !important;
+}
+
+span{
+    font-weight: bold !important;
 }
 
 /* ========== HEADER ========== */
@@ -9,6 +50,8 @@
 header{
     min-height: 9rem;
     background-color: #E4DCCF !important;
+    font-size: 1.5rem;
+    color: #576F72 !important;
 }
 .logo{
     width: 35vh;
@@ -34,6 +77,7 @@ a{
 }
 h2{
     color: #576F72;
+    font-size: 2rem;
 }
 
 /* ========== MAIN Y PRODUCTS ========== */
@@ -120,6 +164,7 @@ body::-webkit-scrollbar-thumb {
 footer{
     min-height: 9rem !important;
     background-color: #F0EBE3 !important;
+    color: #576F72 !important;
 }
 .a-footer{
     color: #B2675E !important;
@@ -273,15 +318,14 @@ tr {
     border-radius: .5rem;
 }
 .btn-color {
-    background-color: #648f8d;
-    color: white;
+    background-color: #648f8d !important;
+    color: white !important;
 }
 .btn-color:hover {
-    background-color: #94b9b8;
+    background-color: #94b9b8 !important;
     border: none;
-    color: white;
+    color: white !important;
 }
-
 
 /* ========== MEDIA QUERIES ========== */
 

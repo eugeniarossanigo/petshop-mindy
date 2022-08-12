@@ -52,7 +52,7 @@ function cardGenerator(arrayProducts) {
               <p>$ ${product.precio}</p>
               <p id="alert-stock">${product.stock < 3 ? "¡ÚLTIMAS UNIDADES!" : ""}</p>       
               <p id="stock" value="${product.stock}">Stock: ${product.stock}</p>
-              <button class="btn btn-personal" value="${product.stock}" onclick="addToCart('${product.tipo}','${product._id}', ${product.stock})">Agregar al carritooo</button>`;
+              <button class="btn btn-personal" value="${product.stock}" onclick="addToCart('${product.tipo}','${product._id}', ${product.stock})">Agregar al carrito</button>`;
               cardContainer.appendChild(card);
   });
 
