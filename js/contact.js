@@ -36,8 +36,8 @@ function contactForm(){
                     </fieldset>
                 </form>
             </div>
-            <div class="ubication">
-              <H2>UBICACIÓN</H2>
+            <div class="ubication d-flex flex-column align-items-center">
+              <h2>UBICACIÓN</h2>
               <p>Nos encontramos en Río de Janeiro 300 (Caballito)📍</p>
               <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3283.698031802572!2d-58.4304098!3d-34.6117966!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca429815227f%3A0x5d302e497c2cda87!2sR%C3%ADo%20de%20Janeiro%20300%2C%20C1405CCB%20CABA!5e0!3m2!1ses-419!2sar!4v1660106463368!5m2!1ses-419!2sar" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
