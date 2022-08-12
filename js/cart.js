@@ -38,7 +38,6 @@ const getAndShowData = async() => {
             table.classList.add('d-flex')
             table.classList.add('justify-content-center')
             table.innerHTML = `<img class="kitty" src="./assets/img/gatito-carrito.png" alt="gatito"></img>`
-            ///AGREGAR MODAL
         })
 
         document.getElementById('clear-btn').addEventListener("click", () => {
@@ -46,7 +45,6 @@ const getAndShowData = async() => {
             subtotal.textContent = 0
             total.textContent = 0
             cartContainer.innerHTML = ""
-            ///AGREGAR MODAL
         })
 
         cartContainer.addEventListener('click', deleteProduct);
@@ -140,7 +138,7 @@ let createProductsCart = (array) => {
                                 <button class="border-0 bg-transparent">
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#4f706f"
-                                        class="bi bi-dash-square product-name-subtract" viewBox="0 0 16 16">
+                                        class="bi bi-dash-square product-name-subtract" style="z-index: 2;" viewBox="0 0 16 16">
                                         <path
                                             d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
                                         <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z" />
@@ -150,7 +148,7 @@ let createProductsCart = (array) => {
                             <td>
                                 <button class="border-0 bg-transparent"><svg
                                     xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#4f706f"
-                                    class="bi bi-plus-square product-name-add" viewBox="0 0 16 16">
+                                    class="bi bi-plus-square product-name-add" style="z-index: 2;" viewBox="0 0 16 16">
                                     <path
                                         d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
                                     <path
@@ -161,7 +159,7 @@ let createProductsCart = (array) => {
                             <td>
                                 <button class="border-0 bg-transparent">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#4f706f"
-                                        class="bi bi-trash delete" viewBox="0 0 16 16">
+                                        class="bi bi-trash delete" style="z-index: 2;" viewBox="0 0 16 16">
                                         <path
                                             d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
                                         <path fill-rule="evenodd"
