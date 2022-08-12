@@ -33,14 +33,14 @@ function descriptionProduct() {
 }
 
 function cardGenerator(arrayProducts) {
-    cardContainer.innerHTML = ''
-    arrayProducts.forEach(product => {
+  cardContainer.innerHTML = ''
+  arrayProducts.forEach(product => {
     const card = document.createElement("div");
     card.classList.add("card");
     card.classList.add("card-personal");
     card.innerHTML = `    
-    <img src="${product.imagen}" class="card-img-top card-img-personal" alt="...">
-              <div class="card-body d-flex flex-column justify-content-between gap-2">
+    <img src="${product.imagen}" class="card-img-top card-img-personal" alt="Imagen de producto">
+              <div class="card-body d-flex flex-column justify-content-between">
               <button type="reset" class="btn btn-details" data-bs-container="body" data-bs-toggle="popover"
               data-bs-placement="top"
               data-bs-content="${product.descripcion}">
@@ -65,7 +65,7 @@ function cardGenerator(arrayProducts) {
 }
 
 
-let cant =  0
+let cant = 0
 let idsAndCantMeds = []
 let idsAndCantToys = []
 let addToCart = (category, id, stock) => {
@@ -76,132 +76,97 @@ let addToCart = (category, id, stock) => {
     showConfirmButton: false,
     timer: 1500
   })
-if (category === "Medicamento") {
-      let newId = id
+  if (category === "Medicamento") {
+    let newObject = {
+      id: id,
+      cant: cant
+    }
+    let newId = id
     let newCant = cant
     let objectIndex = {}
-    if(idsAndCantMeds.length > 0){
-      idsAndCantMeds.find(obj =>{
-            if(obj.id.includes(newId)){
-                newObject = {
-                    id: newId,
-                    cant: obj.cant
-                }
-
-            }else{
-                newObject = {
-                    id: newId,
-                    cant: newCant
-                }
-            }
-        })
+    if (idsAndCantMeds.length > 0) {
+      idsAndCantMeds.find(obj => {
+        if (obj.id.includes(newId)) {
+          newObject = {
+            id: newId,
+            cant: obj.cant
+          }
+        } else {
+          newObject = {
+            id: newId,
+            cant: newCant
+          }
+        }
+      })
     }
     objectIndex = idsAndCantMeds.find(obj => obj.id === newId)
-    if(idsAndCantMeds.indexOf(objectIndex) == 0){
-        let objectTemp = objectIndex
-        newObject = objectTemp
-        if(newObject.cant < stock){
-          idsAndCantMeds.shift()
-            newObject.cant += 1
-            idsAndCantMeds.push(newObject)
-        }else{
-            newObject.cant = stock
-        }
-    }else{
-        if(newObject.cant < stock){
-          idsAndCantMeds.splice(idsAndCantMeds.indexOf(objectIndex),idsAndCantMeds.indexOf(objectIndex))
-            newObject.cant += 1
-            idsAndCantMeds.push(newObject)
-        }else{
-            newObject.cant = stock +1
-        }
-    }
-  // idsAndCantMeds.push(newObject)
-  localStorage.setItem('cartMeds', JSON.stringify(idsAndCantMeds))
-} else {
-  let newId = id
-  let newCant = cant
-  let objectIndex = {}
-  if(idsAndCantToys.length > 0){
-    idsAndCantToys.find(obj =>{
-          if(obj.id.includes(newId)){
-              newObject = {
-                  id: newId,
-                  cant: obj.cant
-              }
-
-          }else{
-              newObject = {
-                  id: newId,
-                  cant: newCant
-              }
-          }
-      })
-  }
-  objectIndex = idsAndCantToys.find(obj => obj.id === newId)
-  if(idsAndCantToys.indexOf(objectIndex) == 0){
+    if (idsAndCantMeds.indexOf(objectIndex) == 0) {
       let objectTemp = objectIndex
       newObject = objectTemp
-      if(newObject.cant < stock){
-        idsAndCantToys.shift()
-          newObject.cant += 1
-          idsAndCantToys.push(newObject)
-      }else{
-          newObject.cant = stock
+      if (newObject.cant < stock) {
+        idsAndCantMeds.shift()
+        newObject.cant += 1
+        idsAndCantMeds.push(newObject)
+      } else {
+        newObject.cant = stock
       }
-  // idsAndCantToys.push(newObject)
-  localStorage.setItem('cartToys', JSON.stringify(idsAndCantToys))
+    } else {
+      if (newObject.cant < stock) {
+        idsAndCantMeds.splice(idsAndCantMeds.indexOf(objectIndex), idsAndCantMeds.indexOf(objectIndex))
+        newObject.cant += 1
+        idsAndCantMeds.push(newObject)
+      } else {
+        newObject.cant = stock + 1
+      }
+    }
+    // idsAndCantMeds.push(newObject)
+    localStorage.setItem('cartMeds', JSON.stringify(idsAndCantMeds))
+  } else{
+    let newObject = {
+      id: id,
+      cant: cant
+    }
+    let newId = id
+    let newCant = cant
+    let objectIndex = {}
+    if (idsAndCantToys.length > 0) {
+      idsAndCantToys.find(obj => {
+        if (obj.id.includes(newId)) {
+          newObject = {
+            id: newId,
+            cant: obj.cant
+          }
+        } else {
+          newObject = {
+            id: newId,
+            cant: newCant
+          }
+        }
+      })
+    }
+    objectIndex = idsAndCantToys.find(obj => obj.id === newId)
+    if (idsAndCantToys.indexOf(objectIndex) == 0) {
+      let objectTemp = objectIndex
+      newObject = objectTemp
+      if (newObject.cant < stock) {
+        idsAndCantToys.shift()
+        newObject.cant += 1
+        idsAndCantMeds.push(newObject)
+      } else {
+        newObject.cant = stock
+      }
+    } else {
+      if (newObject.cant < stock) {
+        idsAndCantToys.splice(idsAndCantToys.indexOf(objectIndex), idsAndCantToys.indexOf(objectIndex))
+        newObject.cant += 1
+        idsAndCantToys.push(newObject)
+      } else {
+        newObject.cant = stock + 1
+      }
+      localStorage.setItem('cartToys', JSON.stringify(idsAndCantToys))
+    }
+  }
 }
-}}
-
-// 
-// let idsAndCant = []
-// let addToCart = (id, cant, stock) => {
-//     let newObject = {
-//         id: id,
-//         cant: cant
-//     }
-//     let newId = id
-//     let newCant = cant
-//     let objectIndex = {}
-//     if(idsAndCant.length > 0){
-//         idsAndCant.find(obj =>{
-//             if(obj.id.includes(newId)){
-//                 newObject = {
-//                     id: newId,
-//                     cant: obj.cant
-//                 }
-
-//             }else{
-//                 newObject = {
-//                     id: newId,
-//                     cant: newCant
-//                 }
-//             }
-//         })
-//     }
-//     objectIndex = idsAndCant.find(obj => obj.id === newId)
-//     if(idsAndCant.indexOf(objectIndex) == 0){
-//         let objectTemp = objectIndex
-//         newObject = objectTemp
-//         if(newObject.cant < stock){
-//             idsAndCant.shift()
-//             newObject.cant += 1
-//             idsAndCant.push(newObject)
-//         }else{
-//             newObject.cant = stock
-//         }
-//     }else{
-//         if(newObject.cant < stock){
-//             idsAndCant.splice(idsAndCant.indexOf(objectIndex),idsAndCant.indexOf(objectIndex))
-//             newObject.cant += 1
-//             idsAndCant.push(newObject)
-//         }else{
-//             newObject.cant = stock +1
-//         }
-//     }
-//     localStorage.setItem('cart', JSON.stringify(idsAndCant))
-// }
 
 function orderFilterAs(arrayProducts) {
   return arrayProducts.sort((a, b) => a.precio - b.precio)
