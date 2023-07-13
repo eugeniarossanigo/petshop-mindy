@@ -1,4 +1,4 @@
-const URL_API = "https://apipetshop.herokuapp.com/api/articulos";
+const URL_API = "https://mindhub-xj03.onrender.com/api/petshop";
 let cardContainer
 let petShopProducts
 
@@ -6,17 +6,20 @@ async function fetchData(url) {
   try {
     let res = await fetch(url);
     let data = await res.json();
+    // console.log(data)
     if (document.getElementById('medicine-products-container')) {
       cardContainer = document.getElementById('medicine-products-container')
-      petShopProducts = data.response.filter(product => product.tipo === "Medicamento");
+      petShopProducts = data.filter(product => product.categoria === "farmacia");
       filters(petShopProducts);
     } else {
       cardContainer = document.getElementById('toys-products-container')
-      petShopProducts = data.response.filter(product => product.tipo === "Juguete");
+      petShopProducts = data.filter(product => product.categoria === "jugueteria");
       filters(petShopProducts);
     }
-    cardGenerator(petShopProducts, cardContainer);
+    cardGenerator(petShopProducts);
     descriptionProduct();
+    console.log(idsAndCantMeds)
+    console.log(idsAndCantToys)
   } catch (error) {
     console.log(error);
   }
@@ -48,11 +51,11 @@ function cardGenerator(arrayProducts) {
               <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
               </svg>
               </button>
-              <h5 class="card-title text-center">${product.nombre}</h5>
+              <h5 class="card-title text-center">${product.producto}</h5>
               <p>$ ${product.precio}</p>
-              <p id="alert-stock">${product.stock < 3 ? "¡ÚLTIMAS UNIDADES!" : ""}</p>       
-              <p id="stock" value="${product.stock}">Stock: ${product.stock}</p>
-              <button class="btn btn-personal" value="${product.stock}" onclick="addToCart('${product.tipo}','${product._id}', ${product.stock})">Agregar al carrito</button>`;
+              <p id="alert-stock">${product.disponibles < 3 ? "¡ÚLTIMAS UNIDADES!" : ""}</p>       
+              <p id="stock" value="${product.disponibles}">Stock: ${product.disponibles}</p>
+              <button class="btn btn-personal" value="${product.disponibles}" onclick="addToCart('${product.categoria}','${product._id}', ${product.disponibles})">Agregar al carrito</button>`;
               cardContainer.appendChild(card);
   });
 
@@ -76,7 +79,7 @@ let addToCart = (category, id, stock) => {
     showConfirmButton: false,
     timer: 1500
   })
-  if (category === "Medicamento") {
+  if (category === "farmacia") {
     let newObject = {
       id: id,
       cant: cant
@@ -121,7 +124,7 @@ let addToCart = (category, id, stock) => {
     }
     // idsAndCantMeds.push(newObject)
     localStorage.setItem('cartMeds', JSON.stringify(idsAndCantMeds))
-  } else{
+  } else {
     let newObject = {
       id: id,
       cant: cant
@@ -198,6 +201,6 @@ function filters(arrayProducts) {
 };
 
 function searchText(arrayProducts, text) {
-  let filteredSearchProducts = arrayProducts.filter(product => product.nombre.toLowerCase().includes(text.toLowerCase()))
+  let filteredSearchProducts = arrayProducts.filter(product => product.producto.toLowerCase().includes(text.toLowerCase()))
   return filteredSearchProducts
 }

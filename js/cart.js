@@ -1,34 +1,35 @@
-const URL_API = "https://apipetshop.herokuapp.com/api/articulos";
+const URL_API = "https://mindhub-xj03.onrender.com/api/petshop";
 let cartContainer
-let petShopProducts
+let data
 
 const getAndShowData = async() => {
     try {
         const res = await fetch(URL_API)
-        let data = await res.json()
-        petShopProducts = data.response
-        cartContainer = document.getElementById('cart-tbody-container')
+        data = await res.json()
+        cartContainer =  document.getElementById('cart-tbody-container')
 
-        let arrayCart = filterProducts(petShopProducts)
-        createProductsCart(arrayCart)
+        let arrayCart = filterProducts(data)
+        console.log(arrayCart)
+        createProductsCart(arrayCart, cartContainer)
         
         
         let subtotal = document.getElementById("subtotal")
         let total = document.getElementById("total")
         let totalList = [...document.querySelectorAll('.total-price')]
         updateSubtotal(totalList, subtotal)
-        updateSubtotal(totalList, total)
+        calculateTotal("retiro", subtotal, total)
+        // updateSubtotal(totalList, total)
         
         const radioShipment = document.querySelectorAll("input[type=radio]")
-        let radioShipmentArray = Array.from(radioShipment)
+        // let radioShipmentArray = Array.from(radioShipment)
+        // console.log(radioShipment)
 
-        radioShipmentArray.forEach(radio => {
-            let checked
-            radio.addEventListener("change", () => {
-                checked = radioShipmentArray.filter(e => e.checked).map(e => e.value)
-                calculateTotal(checked[0], subtotal, total)
-            })
-        })
+        let checked
+        radioShipment.forEach(radio => radio.addEventListener("change", () => {
+            checked = [...radioShipment].filter(el => el.checked).map(el => el.value)
+            console.log(checked)
+            calculateTotal(checked[0], subtotal, total)
+        }))
 
         document.getElementById('clear-cart').addEventListener("click", () => {
             localStorage.clear()
@@ -104,7 +105,7 @@ const getAndShowData = async() => {
                 let stock = Number(amount.dataset.value)
                 let price = Number(amount.parentNode.children[4].textContent)
                 let total = amount.parentNode.children[8]
-                if (Number(amount.textContent) == 1) {
+                if (Number(amount.textContent) === 1) {
                     e.target.classList.add('delete')
                     deleteProduct
                 } else if (Number(amount.textContent) > 0) {
@@ -122,8 +123,8 @@ const getAndShowData = async() => {
 }
 getAndShowData()
 
-let createProductsCart = (array) => {
-    cartContainer.innerHTML = ""
+let createProductsCart = (array, container) => {
+    container.innerHTML = ""
     array.forEach(product => {
         let cartProd = document.createElement('tr');
         cartProd.id = `index-${product.id}`
@@ -132,7 +133,7 @@ let createProductsCart = (array) => {
                                     src="${product.img}"
                                     alt="image"></td>
                             <td>${product.name}</td>
-                            <td>${product.description}</td>
+                            <td>${product.description.slice(0,50)}...</td>
                             <td class="unit-price cantidad">${product.price}</td>
                             <td>
                                 <button class="border-0 bg-transparent">
@@ -167,7 +168,7 @@ let createProductsCart = (array) => {
                                     </svg>
                                 </button>
                             </td>`
-        cartContainer.appendChild(cartProd);
+        container.appendChild(cartProd);
     })
 }
 
@@ -188,10 +189,10 @@ let filterProducts = (array) => {
                 let newProduct = {
                     id: elem._id,
                     img: elem.imagen,
-                    name: elem.nombre,
+                    name: elem.producto,
                     price: elem.precio,
                     description: elem.descripcion,
-                    stock: elem.stock,
+                    stock: elem.disponibles,
                     cant: prod.cant,
                     multiplyCant: function(a,b) {
                         return a*b
@@ -210,18 +211,18 @@ let updateSubtotal = (array, container) => {
     container.textContent = array.reduce((acc, el) => acc + Number(el.textContent), 0)
 }
 
-function calculateTotal(check) {
+function calculateTotal(check="retiro", subtotal, total) {
     let res = 0
-    if (check == "enviar") {
+    if (check === "enviar") {
+        console.log("enviar")
         res = Number(subtotal.textContent) + 1000
-        total.textContent =res
-    } else if (check == "retiro") {
+        total.textContent = res
+    } else if (check === "retiro") {
+        console.log("retiro")
         res = Number(subtotal.textContent)
         total.textContent = res
     }
 }
-
-
 
 let date = document.getElementById("actual")
 let newDate = new Date().toLocaleDateString();
